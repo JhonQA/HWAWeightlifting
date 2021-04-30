@@ -15,29 +15,65 @@
             <h1 class="text-center" id=""> Olympic Weightlifting</h1>
     
             <h4 class="text-center">
-                Welcome to the home of Weightlifting
+                Welcome to the home of Weightlifting- Enter your personal records!
             </h4>
             <div id="people"></div>
         </div>
     </div>
 </header>
 
+<div class="container-sm ">
+    
+    <form id="mainForm">
+        <div class="col-2">
+          <label for="firstName" class="form-label"> First Name</label>
+          <input type="text" class="form-control" id="firstName1" aria-describedby="firstName">
+          <div id="emailHelp" class="form-text"></div>
+        </div>
 
-<div class="slider">
-    <div class ="load">
+        <div class="col-2">
+          <label for="lastName" class="form-label">Last Name</label>
+          <input type="text" class="form-control" id="lastName1"  aria-describedby="lastName">
+        </div>
+
+        <div class="col-1">
+            <label for="benchPress" class="form-label">Bench Press</label>
+            <input type="number" class="form-control" id="benchPress1"  aria-describedby="benchPress">
+          </div>
+          
+        <div class="col-1">
+            <label for="cleanAndJ" class="form-label">Clean & Jerk</label>
+            <input type="number" class="form-control" id="cleanAndJ1"  aria-describedby="cleanAndJ">
+          </div>
+          
+        <div class="col-1">
+            <label for="snatch" class="form-label">Snatch</label>
+            <input type="number" class="form-control" id="snatch1"  aria-describedby="Snatch">
+          </div>
+          
+          <br>
+        <button type="button" class="btn btn-primary" onclick="createPersonalBest();">Submit</button>
+        <button type="reset" class="btn btn-secondary">Clear Values</button>
+      </form>
     </div>
-    <div class ="content">
-        <div class ="container-md">
-        <p lass="text-center" id="">Welcome to the home of Weightlifting. Here you can view all the Personal Best lifts users have submitted 
-            in the Clean & Jerk, Snatch, and Bench Press. You can also submit your own if you want to show off! </p>
+    
+    <!-- <div class="slider">
+        <div class ="load">
+        </div>
+        <div class ="content">
+            <div class ="container-md">
+            <p class="text-center" id="">Welcome to the home of Weightlifting. Here you can view all the Personal Best lifts users have submitted 
+                in the Clean & Jerk, Snatch, and Bench Press. You can also submit your own if you want to show off! </p>
+        </div>
     </div>
-</div>
-</div>
+    </div> -->
 
 
 
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+<script src="./weightlifting.js"></script>
 </body>
 </html>
