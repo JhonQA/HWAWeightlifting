@@ -22,31 +22,33 @@
     </div>
 </header>
 
+<div id="results"></div>
+
 <div class="container-sm ">
     
     <form id="mainForm">
-        <div class="col-2">
+        <div class="col-3">
           <label for="firstName" class="form-label"> First Name</label>
           <input type="text" class="form-control" id="firstName1" aria-describedby="firstName">
           <div id="emailHelp" class="form-text"></div>
         </div>
 
-        <div class="col-2">
+        <div class="col-3">
           <label for="lastName" class="form-label">Last Name</label>
           <input type="text" class="form-control" id="lastName1"  aria-describedby="lastName">
         </div>
 
-        <div class="col-1">
+        <div class="col-2">
             <label for="benchPress" class="form-label">Bench Press</label>
             <input type="number" class="form-control" id="benchPress1"  aria-describedby="benchPress">
           </div>
           
-        <div class="col-1">
+        <div class="col-2">
             <label for="cleanAndJ" class="form-label">Clean & Jerk</label>
             <input type="number" class="form-control" id="cleanAndJ1"  aria-describedby="cleanAndJ">
           </div>
           
-        <div class="col-1">
+        <div class="col-2">
             <label for="snatch" class="form-label">Snatch</label>
             <input type="number" class="form-control" id="snatch1"  aria-describedby="Snatch">
           </div>
@@ -55,6 +57,8 @@
         <button type="button" class="btn btn-primary" onclick="createPersonalBest();">Submit</button>
         <button type="reset" class="btn btn-secondary">Clear Values</button>
       </form>
+
+      
     </div>
     
     <!-- <div class="slider">

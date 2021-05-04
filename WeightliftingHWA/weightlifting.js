@@ -5,6 +5,7 @@ const lastName = document.querySelector("#lastName1");
 const benchPress = document.querySelector("#benchPress1");
 const cleanAndJ = document.querySelector("#cleanAndJ1");
 const snatch = document.querySelector("#snatch1");
+const results = document.querySelector("#results");
 
 // console.log(firstName.value);
 // console.log(lastName.value);
@@ -21,5 +22,6 @@ const createPersonalBest=() =>{
     const snatchVal = snatch.value;
     const kilos = "KG";
 
-    console.log(`${firstNameVal} ${lastNameVal} ${benchPressVal}${"KG"} ${cleanAndJVal}${"KG"} ${snatchVal}${"KG"}`);
+    console.log(`${firstNameVal} ${lastNameVal} ${benchPressVal} ${cleanAndJVal} ${snatchVal}`);
 };
+
