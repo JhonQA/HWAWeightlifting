@@ -16,14 +16,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.qa.weightlifting.domain.Weightlifting;
-import com.qa.weightlifting.service.WeightliftingService;
+import com.qa.weightlifting.service.WeightliftingServiceDB;
 
 @RestController
 public class WeightliftingController {
 
-	private WeightliftingService service;
+	private WeightliftingServiceDB service;
 	
-	public WeightliftingController(WeightliftingService service) {
+	public WeightliftingController(WeightliftingServiceDB service) {
 		this.service = service;
 	}
 
@@ -38,24 +38,21 @@ public class WeightliftingController {
 		return ResponseEntity.ok(this.service.getAll());
 	}
 	
-	@GetMapping("getOne/{index}")
-	public ResponseEntity<Weightlifting> getRecordById(@PathVariable int index) {
-		return ResponseEntity.ok(this.service.getbyId(index));
+	@GetMapping("getOne/{id}")
+	public ResponseEntity<Weightlifting> getRecordById(@PathVariable Long id) {
+		return ResponseEntity.ok(this.service.getbyId(id));
 	}
 	
-	@DeleteMapping("/remove/{index}")
-	public ResponseEntity<Boolean> removeRecord(@PathVariable int index) {
-		return ResponseEntity.ok(this.service.removeRecord(index));
+	@DeleteMapping("/remove/{id}")
+	public ResponseEntity<Boolean> removeRecord(@PathVariable Long id) {
+		return this.service.removeRecord(id) ? new ResponseEntity<>(HttpStatus.NO_CONTENT) :
+			new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
-//	@PutMapping("/update")
-//	public Weightlifting updateRecord(@PathParam("index") int index, @RequestBody Weightlifting weightlifting) {
-//		
-//	
-//		this.service.removeRecord(index);
-//		this.service.add(index, weightlifting);
-//		return this.service.get(index);
-//	}
+	@PutMapping("/update/{id}")
+	public ResponseEntity<Weightlifting> updateRecord(@PathVariable Long id, @RequestBody Weightlifting newWeightlifting) {
+		return new ResponseEntity<Weightlifting>(this.service.updateRecord(id, newWeightlifting), HttpStatus.ACCEPTED);
+	}
 }
 
 
