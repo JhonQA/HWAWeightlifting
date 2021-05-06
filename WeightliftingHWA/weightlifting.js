@@ -7,6 +7,8 @@ const cleanAndJ = document.querySelector("#cleanAndJ1");
 const snatch = document.querySelector("#snatch1");
 const results = document.querySelector("#results");
 
+const API_URL = "http://localhost:8080";
+
 // console.log(firstName.value);
 // console.log(lastName.value);
 // console.log(benchPress.value);
@@ -24,10 +26,12 @@ const createPersonalBest=() =>{
     console.log(`${firstNameVal} ${lastNameVal} ${benchPressVal} ${cleanAndJVal} ${snatchVal}`);
 };
 
-axios.get("http://localhost:8080/getAll")
+axios.get(`${API_URL}/getAll`, {
+    headers: {'Access-Control-Allow-Origin': "*"}
+})
     .then((response)=>{
         console.log(response);
-        for(let data of response.data.data){
+        for(let data of response.data){
             printToScreen(data);
         }
     })
@@ -39,7 +43,7 @@ axios.get("http://localhost:8080/getAll")
       
         const p = document.createElement("p");
         
-        const text = document.createTextNode(`${information.firstNameVal} ${information.lastNameVal} ${information.benchPressVal} ${information.cleanAndJVal} ${information.snatchVal}`);
+        const text = document.createTextNode(`${information.firstName}, ${information.lastName}, ${information.benchPress} ${information.cleanAndJ} ${information.snatch}`);
       
         p.appendChild(text);
     
