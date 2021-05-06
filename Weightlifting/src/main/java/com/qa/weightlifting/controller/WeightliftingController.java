@@ -39,12 +39,12 @@ public class WeightliftingController {
 	public ResponseEntity<List<Weightlifting>> getWeightlifting(){
 		return ResponseEntity.ok(this.service.getAll());
 	}
-	
+	  
 	@GetMapping("getOne/{id}")
 	public ResponseEntity<Weightlifting> getRecordById(@PathVariable Long id) {
 		return ResponseEntity.ok(this.service.getbyId(id));
 	}
-	
+	 
 	@DeleteMapping("/remove/{id}")
 	public ResponseEntity<Boolean> removeRecord(@PathVariable Long id) {
 		return this.service.removeRecord(id) ? new ResponseEntity<>(HttpStatus.NO_CONTENT) :
@@ -57,7 +57,7 @@ public class WeightliftingController {
 	}
 }
 
-
+ 
 
 
 

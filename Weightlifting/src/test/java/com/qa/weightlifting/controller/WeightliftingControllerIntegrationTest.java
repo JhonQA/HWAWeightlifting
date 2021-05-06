@@ -3,6 +3,7 @@ package com.qa.weightlifting.controller;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -57,12 +58,12 @@ public class WeightliftingControllerIntegrationTest {
 		this.mockMVC.perform(mockRequest).andExpect(matchStatus).andExpect(matchBody);
 		
 	}
-	
+	 
 	@Test
 	void testGetAll() throws Exception{
 		
-		List<Weightlifting> person = new ArrayList<Weightlifting>();
-		person.add(new Weightlifting("Mark", "Tinman", 140, 110, 80));
+		ArrayList<Weightlifting> person = new ArrayList<Weightlifting>();
+		person.add(new Weightlifting(1L,"Mark", "Tinman", 140, 110, 80));
 		
 		String personAsJSON= this.mapper.writeValueAsString(person);
 		
@@ -74,14 +75,57 @@ public class WeightliftingControllerIntegrationTest {
 		
 		this.mockMVC.perform(mockRequest).andExpect(matchStatus).andExpect(matchBody);
 		
+	} 
+	 
+	@Test
+	void testGetOne() throws Exception{
+		
+		Weightlifting person = new Weightlifting(1L,"Mark", "Tinman", 140, 110, 80);
+		
+		String personAsJSON= this.mapper.writeValueAsString(person);
+		
+		
+		RequestBuilder mockRequest = get("/getOne/{id}", 1);
+		
+		ResultMatcher matchStatus= status().isOk();
+		
+		ResultMatcher matchBody= content().json(personAsJSON);
+		
+		this.mockMVC.perform(mockRequest).andExpect(matchStatus).andExpect(matchBody);
+		
+	}
+	
+	
+	@Test
+	void testUpdateRecord() throws Exception{
+		
+		
+		
+		
+		Weightlifting person = new Weightlifting(1L,"Mark", "Tinman", 140, 110, 80);
+		
+		String personAsJSON= this.mapper.writeValueAsString(person);
+		
+		
+		RequestBuilder mockRequest = put("/update/{id}", 1).contentType(MediaType.APPLICATION_JSON).content(personAsJSON);
+		
+		Weightlifting savedPerson = new Weightlifting(1L, "Tim", "Kennen", 60, 40, 20);
+		
+		String savedPersonAsJSON = this.mapper.writeValueAsString(savedPerson);
+	
+		ResultMatcher matchStatus= status().isAccepted();
+		
+		ResultMatcher matchBody= content().json(savedPersonAsJSON);
+		
+		this.mockMVC.perform(mockRequest).andExpect(matchStatus).andExpect(matchBody);
 	}
 	
 	@Test
 	void testRemoveRecord() throws Exception{
-		
-		
+
 		RequestBuilder mockRequest = delete("/remove/{id}", 1).contentType(MediaType.APPLICATION_JSON);
 		ResultMatcher matchStatus= status().isNoContent();
+		
 	
 		this.mockMVC.perform(mockRequest).andExpect(matchStatus);
 
