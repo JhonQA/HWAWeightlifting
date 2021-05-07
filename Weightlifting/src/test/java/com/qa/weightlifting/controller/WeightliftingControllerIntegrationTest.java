@@ -78,7 +78,7 @@ public class WeightliftingControllerIntegrationTest {
 	} 
 	 
 	@Test
-	void testGetOne() throws Exception{
+	void testGetById() throws Exception{
 		
 		Weightlifting person = new Weightlifting(1L,"Mark", "Tinman", 140, 110, 80);
 		
