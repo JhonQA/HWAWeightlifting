@@ -54,14 +54,54 @@ public class WeightliftingServiceDBUnitTest {
 	
 	@Test
 	void testGetById() {
-		Optional<Weightlifting> person = new ;
-		Weightlifting savedPerson = new Weightlifting(1L, "Mark", "Tinman", 140, 110, 80);
 		
-		Mockito.when(this.repo.findById(1L)).thenReturn(person);
 		
-		assertThat(this.service.getbyId(1L)).isEqualTo(savedPerson);
+		Optional<Weightlifting> optionalRecord = Optional.of(new Weightlifting(1L,"Mark", "Tinman", 140, 110, 80));
+		Weightlifting returnPerson = new Weightlifting(1L, "Mark", "Tinman", 140, 110, 80);
+		
+		Mockito.when(this.repo.findById(1L)).thenReturn(optionalRecord);
+		
+		assertThat(this.service.getbyId(1L)).isEqualTo(returnPerson);
 		
 		Mockito.verify(this.repo, Mockito.times(1)).findById(1L);
+	} 
+	
+	@Test
+	void updateRecord() {
+		Optional<Weightlifting> optionalRecord = Optional.of(new Weightlifting(1L,"Mark", "Tinman", 140, 110, 80));
+		
+		Weightlifting optional = optionalRecord.get();
+		 
+		Mockito.when(this.repo.findById(1L)).thenReturn(optionalRecord);
+		
+		
+		assertThat(this.service.updateRecord(1L, optional));
+
+		Mockito.verify(this.repo, Mockito.times(1)).findById(1L);
+		
+		Mockito.verify(this.repo, Mockito.times(1)).saveAndFlush(optional);
+	}
+	 
+	@Test 
+	void removeRecord() {
+		
+		Mockito.when(this.repo.existsById(1L)).thenReturn(true,false);
+		
+		assertThat(this.service.removeRecord(1L)).isEqualTo(false);
+		
+		Mockito.verify(this.repo, Mockito.times(1)).existsById(1L);
+		Mockito.verify(this.repo, Mockito.times(1)).existsById(1L);
+	}
+	 
+	@Test
+	void removeRecordTwo() {
+		
+		Mockito.when(this.repo.existsById(2L)).thenReturn(true,false);
+		
+		assertThat(this.service.removeRecord(1L)).isEqualTo(true);
+		
+		Mockito.verify(this.repo, Mockito.times(1)).existsById(1L);
+		Mockito.verify(this.repo, Mockito.times(1)).existsById(1L);
 	}
 	
 }

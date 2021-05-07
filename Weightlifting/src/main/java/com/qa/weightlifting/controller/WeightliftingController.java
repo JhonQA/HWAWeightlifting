@@ -39,7 +39,7 @@ public class WeightliftingController {
 	public ResponseEntity<List<Weightlifting>> getWeightlifting(){
 		return ResponseEntity.ok(this.service.getAll());
 	}
-	  
+	   
 	@GetMapping("getOne/{id}")
 	public ResponseEntity<Weightlifting> getRecordById(@PathVariable Long id) {
 		return ResponseEntity.ok(this.service.getbyId(id));
@@ -47,10 +47,10 @@ public class WeightliftingController {
 	 
 	@DeleteMapping("/remove/{id}")
 	public ResponseEntity<Boolean> removeRecord(@PathVariable Long id) {
-		return this.service.removeRecord(id) ? new ResponseEntity<>(HttpStatus.NO_CONTENT) :
-			new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-	}
-	
+		return this.service.removeRecord(id) ? new ResponseEntity<>(true,HttpStatus.NO_CONTENT) :
+			new ResponseEntity<>(false,HttpStatus.INTERNAL_SERVER_ERROR);
+	} 
+	  
 	@PutMapping("/update/{id}")
 	public ResponseEntity<Weightlifting> updateRecord(@PathVariable Long id, @RequestBody Weightlifting newWeightlifting) {
 		return new ResponseEntity<Weightlifting>(this.service.updateRecord(id, newWeightlifting), HttpStatus.ACCEPTED);

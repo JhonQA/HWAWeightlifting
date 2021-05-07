@@ -25,13 +25,13 @@ public class WeightliftingServiceDB {
 	public List<Weightlifting> getAll() {
 		return this.repo.findAll();
 	}
-
+ 
 	public Weightlifting getbyId(Long id) {
 		Optional<Weightlifting> optionalRecord = this.repo.findById(id);
 		return optionalRecord.get();
 		
-	}
-	
+	}  
+	 
 	public Weightlifting updateRecord(Long id, Weightlifting newWeightlifting) {
 		Optional<Weightlifting> optionalRecord = this.repo.findById(id);
 		Weightlifting optional = optionalRecord.get();

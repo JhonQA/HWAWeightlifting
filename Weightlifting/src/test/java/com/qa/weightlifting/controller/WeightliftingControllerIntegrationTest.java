@@ -37,7 +37,7 @@ public class WeightliftingControllerIntegrationTest {
 	
 	@Autowired
 	private ObjectMapper mapper;
-
+ 
 	
 	@Test
 	void testCreate() throws Exception {
@@ -102,11 +102,10 @@ public class WeightliftingControllerIntegrationTest {
 		
 		
 		
-		Weightlifting person = new Weightlifting(1L,"Mark", "Tinman", 140, 110, 80);
+		Weightlifting person = new Weightlifting("Tim", "Kennen", 60, 40, 20);
 		
 		String personAsJSON= this.mapper.writeValueAsString(person);
-		
-		
+
 		RequestBuilder mockRequest = put("/update/{id}", 1).contentType(MediaType.APPLICATION_JSON).content(personAsJSON);
 		
 		Weightlifting savedPerson = new Weightlifting(1L, "Tim", "Kennen", 60, 40, 20);
@@ -123,21 +122,24 @@ public class WeightliftingControllerIntegrationTest {
 	@Test
 	void testRemoveRecord() throws Exception{
 
-		RequestBuilder mockRequest = delete("/remove/{id}", 1).contentType(MediaType.APPLICATION_JSON);
-		ResultMatcher matchStatus= status().isNoContent();
 		
+		
+		RequestBuilder mockRequest = delete("/remove/{id}", 1);
+		ResultMatcher matchStatus= status().isNoContent();
+		 
+		 
 	
 		this.mockMVC.perform(mockRequest).andExpect(matchStatus);
-
+  
 	}
 	
 //	@Test
 //	void testRemoveRecordFail() throws Exception{
 //	
-//		RequestBuilder mockRequest = delete("/remove/{id}", 2).contentType(MediaType.APPLICATION_JSON);
+//		RequestBuilder mockRequest = delete("/remove/{id}", 2);
 //		ResultMatcher matchStatusError= status().isInternalServerError();
-//	
-//		this.mockMVC.perform(mockRequest).andExpect(matchStatusError);
+//		ResultMatcher matchBody = content().string("false");
+//		this.mockMVC.perform(mockRequest).andExpect(matchStatusError).andExpect(matchBody);
 //
 //	}
 	
