@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Bean;
 public class WeightliftingApplication {
 
 	public static void main(String[] args) {
-//		ApplicationContext context =SpringApplication.run(WeightliftingApplication.class, args);
+		ApplicationContext context =SpringApplication.run(WeightliftingApplication.class, args);
 //		
 //		Object byName = context.getBean("time");
 //		LocalTime byType = context.getBean(LocalTime.class);
