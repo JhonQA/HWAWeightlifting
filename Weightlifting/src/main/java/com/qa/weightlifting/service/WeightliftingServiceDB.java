@@ -28,6 +28,7 @@ public class WeightliftingServiceDB {
  
 	public Weightlifting getbyId(Long id) {
 		Optional<Weightlifting> optionalRecord = this.repo.findById(id);
+		optionalRecord.isPresent();
 		return optionalRecord.get();
 		
 	}  
