@@ -6,7 +6,7 @@ const benchPress = document.querySelector("#benchPress1");
 const cleanAndJ = document.querySelector("#cleanAndJ1");
 const snatch = document.querySelector("#snatch1");
 const ALERT = document.querySelector("#onSuccess");
-const 
+
 
 
 const API_URL = "http://localhost:8080";
