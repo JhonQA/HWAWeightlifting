@@ -17,48 +17,79 @@
             <h4 class="text-center">
                 Welcome to the home of Weightlifting- Enter your personal records!
             </h4>
-            <div id="people"></div>
+            
         </div>
     </div>
 </header>
 
 
+<div class ="container">
+  <div class="table-wrapper">
+<table class="table">
+  <div class="col-sm-6">
+  <thead>
+    <tr>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Bench Press KG</th>
+      <th scope="col">Clean and Jerk KG</th>
+      <th scope="col">Snatch KG</th>
+      <th scope="col">Remove Record</th>
+    </tr>
+  </thead>
+  <tbody id ="myTable">
+ 
+      <td id ="results"></td>
+      
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+
+
 
 <div class="container-sm ">
     
-    <form id="mainForm">
-        <div class="col-3">
-          <label for="firstName" class="form-label"> First Name</label>
-          <input type="text" class="form-control" id="firstName1" aria-describedby="firstName">
-          <div id="emailHelp" class="form-text"></div>
-        </div>
 
-        <div class="col-3">
-          <label for="lastName" class="form-label">Last Name</label>
-          <input type="text" class="form-control" id="lastName1"  aria-describedby="lastName">
-        </div>
+  <div class="alert" id="onSuccess"></div>
+ <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Insert your own PR!
+</button>
 
-        <div class="col-2">
-            <label for="benchPress" class="form-label">Bench Press</label>
-            <input type="number" class="form-control" id="benchPress1"  aria-describedby="benchPress">
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          
-        <div class="col-2">
-            <label for="cleanAndJ" class="form-label">Clean & Jerk</label>
-            <input type="number" class="form-control" id="cleanAndJ1"  aria-describedby="cleanAndJ">
+          <div class="modal-body">
+              <input type="text" class="form-control" id="firstName1" placeholder="First Name:"/>
+              <input type="text" class="form-control" id="lastName1" placeholder="Last Name:"/>
+              <input type="number" class="form-control" id="benchPress1" placeholder="Bench Press:"/>
+              <input type="number" class="form-control" id="cleanAndJ1" placeholder="Clean and Jerk:"/>
+              <input type="number" class="form-control" id="snatch1" placeholder="Snatch:"/>
+
           </div>
-          
-        <div class="col-2">
-            <label for="snatch" class="form-label">Snatch</label>
-            <input type="number" class="form-control" id="snatch1"  aria-describedby="Snatch">
+          <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="createPersonalBest();">Submit PR</button>
           </div>
-          
-          <br>
-        <button type="button" class="btn btn-primary" onclick="createPersonalBest();">Submit</button>
-        <button type="reset" class="btn btn-secondary">Clear Values</button>
+      </div>
+  </div>
+</div>
 
 
-        <div id="results"></div>
+
+          
+         
+
+
+        
 
         
       </form>
