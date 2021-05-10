@@ -56,7 +56,7 @@ public class WeightliftingController {
 		return new ResponseEntity<Weightlifting>(this.service.updateRecord(id, newWeightlifting), HttpStatus.ACCEPTED);
 	}
 }
-
+  
  
 
 
