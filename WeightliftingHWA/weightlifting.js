@@ -75,14 +75,14 @@ axios.get(`${API_URL}/getAll`, {
 
         for(var i =0; i< data.length; i++){
 
-            const row = `<tr>
+            const row = `<tr class="table-dark">
                                 <td> ${data[i].firstName} </td>
                                 <td> ${data[i].lastName} </td>
                                 <td> ${data[i].benchPress} </td>
                                 <td> ${data[i].cleanAndJ} </td>
                                 <td> ${data[i].snatch} </td>
-                                <td> <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2${data[i].id}">
-                                Update this PR!
+                                <td> <button type="button" class="btn btn-outline-info btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal2${data[i].id}">
+                                Change this PR!
                               </button>
                               
                               
@@ -92,7 +92,8 @@ axios.get(`${API_URL}/getAll`, {
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                        
+                                            <h5 class="modal-title" id="exampleModalLabel">Change your PR!</h5>
                                             <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
@@ -105,7 +106,7 @@ axios.get(`${API_URL}/getAll`, {
                               
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="deletePersonalBest(${data[i].id});" >Delete!</button>
                                             <button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="updatePersonalBest(${data[i].id});">Update!</button>
                                         </div>
                                     </div>
@@ -130,7 +131,7 @@ axios.get(`${API_URL}/getAll`, {
         const cleanAndJUpdate = document.querySelector("#cleanAndJ2" + number);
         const snatchUpdate = document.querySelector("#snatch2" +number);
 
-        console.log(number);
+      
         
         const firstNameVal = firstNameUpdate.value;
         const lastNameVal = lastNameUpdate.value;
@@ -163,18 +164,36 @@ axios.get(`${API_URL}/getAll`, {
             setTimeout( () => {
                 ALERT.removeAttribute("class");
                 ALERT.innerHTML = "";
-                
-            },3000);
+                location.reload();
+            },1500);
         })
         .catch((err) => console.error(err));
     }
 
 
-    const PARAMS = new URLSearchParams(window.location.search);
+   const deletePersonalBest= (number) =>{
 
-    for(const val of PARAMS.values()){
-    console.log(val);
-    }
+
+    console.log(number); 
+    axios
+    .delete(`${API_URL}/remove/${number}`,{
+        headers: {'Access-Control-Allow-Origin': "*"}
+    })
+    .then((resp) => {
+        console.log(resp);
+        ALERT.setAttribute("class", "alert alert-success");
+        ALERT.innerHTML = "Record has been deleted! Please wait a moment";
+
+
+        setTimeout( () => {
+            ALERT.removeAttribute("class");
+            ALERT.innerHTML = "";
+            location.reload();
+        },1500);
+    })
+    .catch((err) => console.error(err));
+
+   }
    
      
 
