@@ -1,12 +1,9 @@
-
-
-
 *{
     margin: 0;
     padding:0;
 }
 .load{
-    animation: slide 2s;
+    animation: slide 8s;
 }
 
 .slider{
@@ -15,42 +12,31 @@
     background-position: center;
     width: 100%;
     height: 100vh;
-    animation: slide 40s infinite;
-}
-
-.content{
-    color:rgb(255, 255, 255); 
-    
+    animation: slide 36s infinite;
 }
 
 
 
-.principal p{
-    font-size:20px ;
-    
-}
+
+
 
 @keyframes slide {
+    
     0%{
-        background-image: url("./Images/f04fb8c904dc219e70defcbf2f8b6867.jpg") ;
-    }
-    20%{
         background-image: url("./Images/1800x1200_empty-gym.jpg") ; 
     }
-    40%{
-        background-image: url("./Images/f04fb8c904dc219e70defcbf2f8b6867.jpg") ;
-    }
-    60%{
-        background-image: url("./Images/Lasha_Talakhadze_Rio_2016.jpg") ; 
-    }
-    80%{
+    50%{
         background-image: url("./Images/KjZmtGy.jpg") ; 
     }
     100%{
-        background-image: url("./Images/f04fb8c904dc219e70defcbf2f8b6867.jpg") ; 
+        background-image: url("./Images/powerbase2-main.jpg");
     }
+   
+
+
     
 }
+
 
 
 
