@@ -18,7 +18,17 @@
 		<java.version>11</java.version>
 	</properties>
 	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			</dependency>
 		<!-- https://mvnrepository.com/artifact/io.springfox/springfox-boot-starter -->
 		<dependency>
 			<groupId>io.springfox</groupId>

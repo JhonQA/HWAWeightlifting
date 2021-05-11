@@ -76,7 +76,7 @@ axios.get(`${API_URL}/getAll`, {
         for(var i =0; i< data.length; i++){
 
             const row = `<tr class="table-dark">
-                                <td> ${data[i].firstName} </td>
+                                <td id = "firstValueTest"> ${data[i].firstName} </td>
                                 <td> ${data[i].lastName} </td>
                                 <td> ${data[i].benchPress} </td>
                                 <td> ${data[i].cleanAndJ} </td>
