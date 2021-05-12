@@ -32,9 +32,9 @@ public class WeightliftingController {
 	@PostMapping("/create")
 	public ResponseEntity<Weightlifting> createRecord(@RequestBody Weightlifting weightlifting) {
 		
-		return new ResponseEntity<Weightlifting>(this.service.create(weightlifting), HttpStatus.CREATED);
+		return new ResponseEntity<>(this.service.create(weightlifting), HttpStatus.CREATED);
 	}
-	
+	 
 	@GetMapping("/getAll") 
 	public ResponseEntity<List<Weightlifting>> getWeightlifting(){
 		return ResponseEntity.ok(this.service.getAll());
@@ -53,7 +53,7 @@ public class WeightliftingController {
 	  
 	@PutMapping("/update/{id}")
 	public ResponseEntity<Weightlifting> updateRecord(@PathVariable Long id, @RequestBody Weightlifting newWeightlifting) {
-		return new ResponseEntity<Weightlifting>(this.service.updateRecord(id, newWeightlifting), HttpStatus.ACCEPTED);
+		return new ResponseEntity<>(this.service.updateRecord(id, newWeightlifting), HttpStatus.ACCEPTED);
 	}
 }
   
