@@ -18,14 +18,30 @@
 <header>
     <div class="p-2 mb-2 bg-dark bg-gradient text-white">
         <div class="container-md ">
+
+            
             <h1 class="text-center" id=""> Olympic Weightlifting</h1>
-    
+            
             <h4 class="text-center">
                 Welcome to the home of Weightlifting- Enter your personal records!
             </h4>
             
+            
         </div>
     </div>
+
+    <!-- <nav class="navbar navbar-light bg-dark bg-gradient text-white">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="./Images/5bbf4e62354a7-thumbnail.jpg" alt="" width="30" height="24" class="d-inline-block align-text-top">
+            Olympic Weightlifting
+          </a>
+        </div>
+      </nav>
+    </br> -->
+    
+    
+    
 </header>
 
 
@@ -60,6 +76,8 @@
     
 
   <div class="alert" id="onSuccess"></div>
+  <div class="alert" id="onUpdate"></div>
+  <div class="alert" id="onDelete"></div>
  <!-- Button trigger modal -->
 <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal1" name="Insert">
   Insert your own PR!
@@ -85,7 +103,7 @@
           </div>
           <div class="modal-footer">
               <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="createPersonalBest();" id="Submit">Submit PR</button>
+              <button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="createPersonalBest();" id="addPr">Submit PR</button>
           </div>
       </div>
   </div>

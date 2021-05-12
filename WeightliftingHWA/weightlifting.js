@@ -8,6 +8,8 @@ const snatch = document.querySelector("#snatch1");
 
 const updateId = document.querySelector("#updateId");
 const ALERT = document.querySelector("#onSuccess");
+const ALERT_UPDATE = document.querySelector("#onUpdate");
+const ALERT_DELETE = document.querySelector("#onDelete");
 
 
 
@@ -49,7 +51,7 @@ const createPersonalBest=() =>{
             ALERT.removeAttribute("class");
             ALERT.innerHTML = "";
             location.reload();
-        },3000);
+        },1500);
     })
     .catch((err) => console.error(err));
 }
@@ -81,7 +83,7 @@ axios.get(`${API_URL}/getAll`, {
                                 <td> ${data[i].benchPress} </td>
                                 <td> ${data[i].cleanAndJ} </td>
                                 <td> ${data[i].snatch} </td>
-                                <td> <button type="button" class="btn btn-outline-info btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal2${data[i].id}">
+                                <td> <button type="button" id= "updateButton${data[i].id}" class="btn btn-outline-info btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal2${data[i].id}" name="changeRecord">
                                 Change this PR!
                               </button>
                               
@@ -106,8 +108,8 @@ axios.get(`${API_URL}/getAll`, {
                               
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="deletePersonalBest(${data[i].id});" >Delete!</button>
-                                            <button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="updatePersonalBest(${data[i].id});">Update!</button>
+                                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id= "deletePr${data[i].id}" onclick="deletePersonalBest(${data[i].id});" >Delete!</button>
+                                            <button type="button" class="btn btn-success" data-bs-dismiss="modal" id= "updatePr${data[i].id}" onclick="updatePersonalBest(${data[i].id});">Update!</button>
                                         </div>
                                     </div>
                                 </div>
@@ -157,13 +159,13 @@ axios.get(`${API_URL}/getAll`, {
         .put(`${API_URL}/update/${number}`,obj2 )
         .then((resp) => {
             console.log(resp);
-            ALERT.setAttribute("class", "alert alert-success");
-            ALERT.innerHTML = "Record has been successfully updated! Please wait a moment";
+            ALERT_UPDATE.setAttribute("class", "alert alert-info");
+            ALERT_UPDATE.innerHTML = "Record has been successfully updated! Please wait a moment";
     
     
             setTimeout( () => {
-                ALERT.removeAttribute("class");
-                ALERT.innerHTML = "";
+                ALERT_UPDATE.removeAttribute("class");
+                ALERT_DELETE.innerHTML = "";
                 location.reload();
             },1500);
         })
@@ -181,13 +183,13 @@ axios.get(`${API_URL}/getAll`, {
     })
     .then((resp) => {
         console.log(resp);
-        ALERT.setAttribute("class", "alert alert-success");
-        ALERT.innerHTML = "Record has been deleted! Please wait a moment";
+        ALERT_DELETE.setAttribute("class", "alert alert-danger");
+        ALERT_DELETE.innerHTML = "Record has been deleted! Please wait a moment";
 
 
         setTimeout( () => {
-            ALERT.removeAttribute("class");
-            ALERT.innerHTML = "";
+            ALERT_DELETE.removeAttribute("class");
+            ALERT_DELETE.innerHTML = "";
             location.reload();
         },1500);
     })

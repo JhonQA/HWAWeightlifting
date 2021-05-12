@@ -8,6 +8,8 @@ class WeightliftingApplicationTests {
 
 	@Test
 	void contextLoads() {
+		
+		WeightliftingApplication.main(new String[] {});
 	}
 
 }
