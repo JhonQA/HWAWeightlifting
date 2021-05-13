@@ -32,7 +32,7 @@ import com.qa.weightlifting.selenium.index.WeightliftingIndexTest;
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 public class IndexPageTest {
 	
-	
+	 
 	@LocalServerPort
 	int randomPort;
 	
@@ -52,6 +52,8 @@ public class IndexPageTest {
 	
 	driver.manage().window().setSize(new Dimension(1366,763));
 	
+	
+	
 }
 	
 	@Test
@@ -67,20 +69,10 @@ public class IndexPageTest {
 		assertEquals("Weightlifting", driver.getTitle());
 	}
 	
-//	@Test
-//	public void insertModal() {
-//		driver.get(URL+randomPort +"/");
-//		WeightliftingIndexTest index = PageFactory.initElements(driver, WeightliftingIndexTest.class);
-//		index.getInsertModalButton().click();
-//		
-//		WebDriverWait wait = new WebDriverWait(driver,5);
-//		wait.until(ExpectedConditions.visibilityOf(index.getInsertModalWindow()));
-//		
-//		assertTrue(index.getInsertModalWindow().getTagName().contains("h5"));
-//	}
 	
 	@Test
 	public void submitButton() {
+		
 		driver.get(URL+randomPort +"/");
 		WeightliftingIndexTest index = PageFactory.initElements(driver, WeightliftingIndexTest.class);
 
@@ -99,7 +91,6 @@ public class IndexPageTest {
 		success.until(ExpectedConditions.visibilityOf(index.getRecordInsertedSucess()));
 		
 		assertTrue(index.getRecordInsertedSucess().getText().contains("Record has been successfully created! Please wait a moment"));
-		
 	}
 	
 
@@ -128,6 +119,7 @@ public class IndexPageTest {
 	
 	@Test
 	public void updateButton() {
+		
 		driver.get(URL+randomPort +"/");
 		WeightliftingIndexTest index = PageFactory.initElements(driver, WeightliftingIndexTest.class);
 
@@ -147,10 +139,13 @@ public class IndexPageTest {
 		
 		assertTrue(index.getRecordUpdateSucess().getText().contains("Record has been successfully updated! Please wait a moment"));
 		
+		
 	}
 	
 	@After
 	public void shutDown() {
 		driver.close();
 	}
+	
+	
 }
