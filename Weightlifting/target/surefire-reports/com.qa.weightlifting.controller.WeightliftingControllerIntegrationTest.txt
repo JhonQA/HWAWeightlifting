@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.qa.weightlifting.controller.WeightliftingControllerIntegrationTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.244 s - in com.qa.weightlifting.controller.WeightliftingControllerIntegrationTest

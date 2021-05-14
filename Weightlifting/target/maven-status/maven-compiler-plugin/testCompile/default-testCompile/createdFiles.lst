@@ -1,0 +1,5 @@
+com\qa\weightlifting\selenium\index\WeightliftingIndexTest.class
+com\qa\weightlifting\service\WeightliftingServiceDBUnitTest.class
+com\qa\weightlifting\selenium\test\IndexPageTest.class
+com\qa\weightlifting\controller\WeightliftingControllerIntegrationTest.class
+com\qa\weightlifting\WeightliftingApplicationTests.class
