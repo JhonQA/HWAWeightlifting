@@ -83,9 +83,9 @@ Each Update and delete is tied to the id of that row which is unique. so the tes
 * [Maven](https://maven.apache.org/) - Dependency Management
 * [Elipse](https://www.eclipse.org/) – Java IDE
 * [MySql](https://www.mysql.com/) – MySql
-* [Visual Studio Code] (https://code.visualstudio.com/) – Visual Studio
-* [Spring] (https://spring.io/) – Spring
-* [Bootstrap] (https://getbootstrap.com/) - Bootstrap
+* [Visual Studio Code](https://code.visualstudio.com/) – Visual Studio
+* [Spring](https://spring.io/) – Spring
+* [Bootstrap](https://getbootstrap.com/) - Bootstrap
 * [Jira Board]( https://jhon-urrego.atlassian.net/jira/software/projects/HOB/boards/4/backlog) – Jira Board
 
 
