@@ -1,0 +1,1 @@
+INSERT INTO `weightlifting` (`first_name`, `last_name`,`bench_press`,`clean_andj`,`snatch`) VALUES('Mark', 'Tinman', 140, 110, 80);

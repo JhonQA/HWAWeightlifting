@@ -14,6 +14,7 @@ public class WeightliftingIndexTest {
 	
 	//These two buttons reference the IDs of the button the user clicks to change a record. This button is on the right hand side
 	//of the table
+	// Increment the ID changeUpdateModalButton or changeDeleteModalButton if you wish to test other rows in the table
 	@FindBy(id = "updateButton1")
 	private WebElement changeUpdateModalButton;
 	
@@ -22,6 +23,7 @@ public class WeightliftingIndexTest {
 	
 	
 	// These three are the buttons the user clicks on in the change modal to insert a new /update / delete an existing record
+	// Increment the ID updateModalButton or deleteModalButton if you wish to test other rows in the table
 	@FindBy(id="addPr")
 	private WebElement submitModalButton;
 	
@@ -34,6 +36,7 @@ public class WeightliftingIndexTest {
 	
 	// The ID and locations of the Modals for inserting a new record /update / delete an existing record
 	// xpath was used on the insert as the ID was causing identification issues
+	// Increment the ID of updateModalWindow or deleteModalWindow if you wish to test other rows in the table
 	@FindBy(xpath = "/html/body/div[1]/div[3]/div[4]")
 	private WebElement insertModalWindow;
 	
