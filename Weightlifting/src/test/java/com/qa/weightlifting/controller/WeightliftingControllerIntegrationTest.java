@@ -132,15 +132,4 @@ public class WeightliftingControllerIntegrationTest {
 		this.mockMVC.perform(mockRequest).andExpect(matchStatus);
   
 	}
-	
-//	@Test
-//	void testRemoveRecordFail() throws Exception{
-//	
-//		RequestBuilder mockRequest = delete("/remove/{id}", 2);
-//		ResultMatcher matchStatusError= status().isInternalServerError();
-//		ResultMatcher matchBody = content().string("false");
-//		this.mockMVC.perform(mockRequest).andExpect(matchStatusError).andExpect(matchBody);
-//
-//	}
-	
 }

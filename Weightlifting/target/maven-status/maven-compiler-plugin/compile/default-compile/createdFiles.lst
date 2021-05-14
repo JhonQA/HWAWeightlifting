@@ -1,0 +1,5 @@
+com\qa\weightlifting\service\WeightliftingServiceDB.class
+com\qa\weightlifting\WeightliftingApplication.class
+com\qa\weightlifting\domain\Weightlifting.class
+com\qa\weightlifting\controller\WeightliftingController.class
+com\qa\weightlifting\repository\WeightliftingRepository.class
